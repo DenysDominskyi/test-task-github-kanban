@@ -1,54 +1,32 @@
-# React + TypeScript + Vite
+# GitHub Issues Kanban Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **Kanban board for GitHub issues**, allowing users to **fetch issues from any public repository** and manage them by dragging and dropping them across different columns.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📌 **Enter a GitHub repository URL** (e.g., `https://github.com/facebook/react`) and press "Load".
+- 🔄 **Fetch issues using the GitHub API** and display them in a Kanban board.
+- 📝 **Three columns**:
+  - **ToDo** → All new issues.
+  - **In Progress** → Opened issues with an assignee.
+  - **Done** → Closed issues.
+- 🎯 **Drag & Drop** issues between columns and reorder them.
+- 💾 **Persistent state**: Issue positions are saved between browser sessions.
+- 🔗 **Visit repository and owner profiles** directly from the UI.
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19** with **Hooks**
+- **TypeScript**
+- **Chakra UI** (for styling)
+- **Redux Toolkit** (for state management)
+- **@dnd-kit/core** (for Drag & Drop)
+- **Vite** (for fast development & build)
+- **LocalStorage API** (for storing state between sessions)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📦 Setup & Installation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/YOUR_USERNAME/test-task-github-kanban.git
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
